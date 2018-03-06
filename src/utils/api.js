@@ -29,11 +29,12 @@ const initData = {
 export function fetchDecks () {
   /* toggle comment here to clear local storage if needed.... */
   /* AsyncStorage.clear() */
-  return AsyncStorage.getItem(STORAGE_KEY).then(results => {
-    return results === null
-      ? initialData()
-      : JSON.parse(results)
-  })
+  return AsyncStorage.getItem(STORAGE_KEY)
+    .then(results => {
+      return results === null
+        ? initialData()
+        : JSON.parse(results)
+    })
 }
 
 export function createDeck (deck) {
